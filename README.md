@@ -1,54 +1,76 @@
-# React + TypeScript + Vite
+# Responsive Grid Layout with Pagination
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, flexible React component that displays content in a responsive grid layout with advanced pagination features. Built with TypeScript and designed to adapt to different screen sizes seamlessly.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive Design
+  -  3-column layout on desktop (≥1024px)
+  -  2-column layout on tablet (≥640px)
+  -  1-column layout on mobile (<640px)
 
-## Expanding the ESLint configuration
+- Dynamic Grid System
+  - Automatically adjusts card density based on screen size
+  - Featured cards with enhanced styling and additional content
+  - Smooth transitions between layouts
+- Advanced Pagination
+  - Configurable page sizes (10, 25, 50 items per page)
+  - Intelligent page number navigation with ellipsis for large datasets
+  - Loading animations for page transitions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting started
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+# Clone the repository
+git clone https://github.com/ronaldomaiacorrea/grid-layout.git
+
+# Navigate to project directory
+cd grid-layout
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm run dev
+```
+## How It Works
+
+### Dynamic Grid Generation
+The component automatically detects the screen width and adjusts its layout accordingly:
+
+```javascript
+// Determine number of columns based on screen size
+const getGridColumns = () => {
+  if (windowWidth >= 1024) return 3 // Large screens - 3 columns
+  if (windowWidth >= 640) return 2  // Medium screens - 2 columns
+  return 1                          // Small screens - 1 column
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Demo Data
+The project includes a sample data generator that creates 100 cards with:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Randomized titles from design and technology topics
+- Chronologically ordered dates
+- Placeholder images
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Customization
+You can easily modify:
+- Card appearance and content
+- Grid layout behavior
+- Pagination styles and options
+
+### Dependencies
+- React
+- TypeScript
+- Lucide React (for icons)
+
+### Browser Support
+- Chrome, Firefox, Safari, Edge (latest versions)
+- Responsive design works across all modern devices
+
+### License
+MIT
+
+Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
