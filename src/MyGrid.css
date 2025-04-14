@@ -1,0 +1,46 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Adjust column width as needed */
+  gap: 10px; /* Adjust the gap between grid items */
+}
+
+.grid-item {
+  /* Basic grid item styling remains */
+}
+
+.card {
+  display: flex;
+  flex-direction: column; /* Stack image, title, footer vertically */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden; /* To contain image and potential rounded corners */
+  background-color: #fff;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Or 'contain' */
+  aspect-ratio: 16 / 9; /* Optional: Maintain a specific aspect ratio for images */
+}
+
+.card-title {
+  padding: 10px;
+  margin: 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.card-footer {
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  font-size: 0.9em;
+  border-top: 1px solid #eee;
+}
+
+/* You can add more specific styling for individual items or cards */
